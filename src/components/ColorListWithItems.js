@@ -1,6 +1,6 @@
-import React from "react";
+import ColorItem from "./ColorItem";
 
-function ColorList() {
+function ColorListWithItems() {
     const colors = [
         "firebrick",
         "rebeccapurple",
@@ -8,15 +8,16 @@ function ColorList() {
         "darkslategray",
         "hotpink",
         "blue",
-        "green"
+        "green",
+        "black",
+        "violet"
     ];
 
-    // Create an array of li elements with the array colors
+    // Create an array of ColorItem components with the array colors
     const colorElements = colors.map(color => {
         return (
-            <li key={color} style={{ color: color}}>
-                {color}
-            </li>
+            // The key goes here not in each li element
+            <ColorItem key={color} color = {color} />
         )
     })
     console.log(colorElements);
@@ -25,11 +26,11 @@ function ColorList() {
         <div>
             <h1>Top {colors.length} CSS Colors</h1>
             <ol>
-                {/* Display the the array of li elements */}
+                {/* Display the the array of components */}
                 {colorElements}
             </ol>
         </div>
     );
 }
 
-export default ColorList;
+export default ColorListWithItems;
